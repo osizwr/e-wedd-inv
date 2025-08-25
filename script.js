@@ -1,21 +1,32 @@
     document.addEventListener("DOMContentLoaded", () => {
         const music = document.getElementById("bg-music");
+        const overlay = document.getElementById("music-overlay");
+        const playBtn = document.getElementById("play-music-btn");
+
         if (!music) return;
 
+        // Main body stays hidden until ready
+        document.body.classList.remove("fade-in");
+
         const enableMusic = () => {
-            music.muted = false;   // unmute
-            music.volume = 1;      // make sure it’s audible
+            music.muted = false;
+            music.volume = 1;
             music.play().catch(err => console.log("Play blocked:", err));
 
-            // remove listeners so it only runs once
-            document.removeEventListener("touchstart", enableMusic);
-            document.removeEventListener("click", enableMusic);
+            // Fade out overlay
+            overlay.classList.add("fade-out");
+
+            // After overlay fades, fade in body
+            setTimeout(() => {
+            overlay.style.display = "none";
+            document.body.classList.add("fade-in");
+            }, 1000); // match CSS transition time
         };
 
-        // on mobile, Safari only allows play inside a user gesture
-        document.addEventListener("touchstart", enableMusic, { once: true });
-        document.addEventListener("click", enableMusic, { once: true });
+        playBtn.addEventListener("click", enableMusic);
+        playBtn.addEventListener("touchstart", enableMusic, { once: true });
     });
+
     // ======== CONFIG — edit these to personalize ========
     const INVITE = {
       coupleA: 'Rhodnie',
