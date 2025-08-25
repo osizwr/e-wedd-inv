@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rhodnie & Charlene Daryl</title>
+    <meta name="description" content="You're invited to celebrate our wedding. Save the date and RSVP online." />
+    <meta name="theme-color" content="#8b5cf6" />
+    <!-- Fonts (graceful fallback to system fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="petals" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="tagline fade-in">You're invited to the wedding of</div>
+      <h1 class="names fade-in">Rhodnie <span class="and">&</span> Charlene Daryl</h1>
+      <div class="date fade-in" id="introText"></div>
+      <div class="date fade-in" id="introText2"></div>
+      <div class="date fade-in" id="introText3"></div><br/>
+      <div class="date fade-in" id="dateText">Saturday, December 20, 2025 · 3:00 PM</div>
+
+      <div class="cta-row fade-in">
+        <button class="btn" id="addToCalendar">Add to Calendar</button>
+        <a href="#rsvp" class="btn secondary">RSVP Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Countdown -->
+    <section class="card" aria-labelledby="countdown-title">
+      <div class="inner">
+        <h2 id="countdown-title">Countdown to Our Day Before We Say "I Do"</h2>
+        <p class="lead">We can't wait to celebrate with you! 🎉</p>
+        <div class="countdown" id="countdown" role="group" aria-label="Countdown timer">
+          <div class="timebox"><div class="num" id="days">--</div><div class="lbl">Days</div></div>
+          <div class="timebox"><div class="num" id="hours">--</div><div class="lbl">Hours</div></div>
+          <div class="timebox"><div class="num" id="mins">--</div><div class="lbl">Minutes</div></div>
+          <div class="timebox"><div class="num" id="secs">--</div><div class="lbl">Seconds</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Details + Timeline -->
+    <section class="grid two">
+      <section class="card" aria-labelledby="details-title">
+        <div class="inner">
+          <h2 id="details-title">Event Details</h2>
+          <p class="lead">Ceremony & Reception</p>
+          <div class="divider"></div>
+          <p><strong>Date:</strong> <span id="dateFull">December 20, 2025</span><br/>
+             <strong>Time:</strong> <span id="timeFull">3:00 PM – 8:00 PM</span><br/>
+             <strong>Church Venue:</strong> <span id="venueName"></span><br/>
+             <strong>Reception Venue:</strong> <span id="recName"></span><br/>
+             <strong>Address:</strong> <span id="recAddr">Puerto Princesa City, Palawan</span></p>
+          <p class="lead">Attire Guide - Shades of Blue</p>
+          <div class="divider"></div>
+          <p><strong>Male:</strong> Semi-formal Polo<br/>
+          <strong>Female:</strong> Cocktail Dress or Long Gown</p>
+          <div class="cta-row">
+            <a id="mapsLink" class="btn secondary" href="" target="_blank" rel="noopener">View Church in Maps</a>
+            <a id="mapsLink1" class="btn secondary" href="" target="_blank" rel="noopener">View Reception in Maps</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="timeline-title">
+        <div class="inner">
+          <h2 id="timeline-title">Wedding Timeline</h2>
+          <div class="timeline">
+            <div class="event">
+              <div class="dot"></div>
+              <div>
+                <h3>1:30 PM — Church Ceremony</h3>
+                <p>Divine Mercy Parish Church</p>
+              </div>
+            </div>
+            <div class="event">
+              <div class="dot"></div>
+              <div>
+                <h3>3:30 PM — Postnup Shoot</h3>
+                <p>Light photo ops for the newly wed.</p>
+              </div>
+            </div>
+            <div class="event">
+              <div class="dot"></div>
+              <div>
+                <h3>4:30 PM — Cocktail Hour @ Rampano Hills</h3>
+                <p>Light bites and photos. Signature drinks served.</p>
+              </div>
+            </div>
+            <div class="event">
+              <div class="dot"></div>
+              <div>
+                <h3>5:30 PM — Reception Ceremony @ Rampano Hills</h3>
+                <p>Dinner, toasts, and first dance.</p>
+              </div>
+            </div>
+            <div class="event">
+              <div class="dot"></div>
+              <div>
+                <h3>8:00 PM — Send‑off</h3>
+                <p>Sparkler exit ✨</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- Map Embed (optional) -->
+    <section class="card">
+        <div class="inner">
+            <h2>Find the Venue</h2>
+            <div class="map-container">
+            <!-- Map 1: Church Ceremony -->
+            <div class="map-box">
+                <h3>Church Ceremony</h3>
+                <iframe class="map" loading="lazy" allowfullscreen src="" title="Map to venue"></iframe>
+            </div>
+
+            <!-- Map 2: Reception Venue -->
+            <div class="map-box">
+                <h3>Reception Ceremony</h3>
+                <iframe class="map2" loading="lazy" allowfullscreen src="" title="Map to venue"></iframe>
+            </div>
+            </div>
+            <p class="note">Tip: Tap the address to open your preferred maps app.</p>
+        </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp" class="card" aria-labelledby="rsvp-title">
+      <div class="inner">
+        <h2 id="rsvp-title">RSVP</h2>
+        <p class="lead">Please let us know if you can join us by <strong>November 30</strong>.</p>
+        <form id="rsvpForm" novalidate>
+          <div class="grid two">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" placeholder="Juan Dela Cruz" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+          <div class="grid two">
+            <div class="field">
+              <label for="attending">Will you attend?</label>
+              <select id="attending" name="attending" required>
+                <option value="">Select…</option>
+                <option>Yes, I wouldn't miss it!</option>
+                <option>No, sadly I can't make it</option>
+                <option>Maybe, I'll let you know.</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="guests">No. of Guests (including you)</label>
+              <select id="guests" name="guests">
+                <option>1</option><option>2</option><option>3</option><option>4+</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="message">Message (optional)</label>
+            <textarea id="message" name="message" placeholder="Dietary notes, song requests, etc."></textarea>
+          </div>
+
+          <!-- <div class="chip">💌 You can also RSVP via WhatsApp: <a href="https://wa.me/" target="_blank" style="margin-left:6px">Send a message</a></div> -->
+          <div class="status" id="status"></div>
+          <div class="cta-row">
+            <button class="btn" type="submit">Send RSVP</button>
+            <!-- <button class="btn secondary" type="button" id="saveInvite">Save Invitation (.html)</button> -->
+          </div>
+          <!-- <p class="note">Set up form handling easily with Formspree, Netlify Forms, or your own backend. This template sends a demo request to Formspree (replace the endpoint).</p> -->
+        </form>
+      </div>
+    </section>
+
+    <!-- Gallery (optional placeholders) -->
+    <section class="card">
+      <div class="inner">
+        <h2>Gallery</h2>
+        <p class="lead">A few moments from our journey together.</p>
+        <div class="grid two" id="gallery">
+          <img alt="Us 1" style="width:100%; border-radius:14px; aspect-ratio: 4/3; object-fit: cover; background:#ffffff10;" src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1200&auto=format&fit=crop"/>
+          <img alt="Us 2" style="width:100%; border-radius:14px; aspect-ratio: 4/3; object-fit: cover; background:#ffffff10;" src="https://images.unsplash.com/photo-1522673607200-38d1dadd6b7c?q=80&w=1200&auto=format&fit=crop"/>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Made with ♥ for family & friends — <span id="namesFooter">Rhodnie & Charlene Daryl</span>
+  </footer>
+
+    <script src="script.js"></script>
+    <audio id="bg-music" loop autoplay>
+        <source src="wedding.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>
