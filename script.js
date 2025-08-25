@@ -1,27 +1,20 @@
     document.addEventListener("DOMContentLoaded", () => {
-    const music = document.getElementById("bg-music");
-    if (!music) return;
+        const music = document.getElementById("bg-music");
+        if (!music) return;
 
-    // Robust "first interaction" handler (mouse, touch, pen)
-    const enableMusic = () => {
-        // ensure the element is ready; then unmute & play
-        const start = () => {
-        // unmute and set a safe volume in the same user gesture
-        music.muted = false;
-        if (music.volume === 0) music.volume = 1;
-        music.play().catch(err => console.log("Play blocked:", err));
+        const enableMusic = () => {
+            music.muted = false;   // unmute
+            music.volume = 1;      // make sure it’s audible
+            music.play().catch(err => console.log("Play blocked:", err));
+
+            // remove listeners so it only runs once
+            document.removeEventListener("touchstart", enableMusic);
+            document.removeEventListener("click", enableMusic);
         };
 
-        if (music.readyState >= 2) {
-        start();
-        } else {
-        music.addEventListener("canplay", start, { once: true });
-        music.load(); // in case browser deferred loading
-        }
-    };
-
-    // Use pointerdown to catch both click & touch (once)
-    document.addEventListener("pointerdown", enableMusic, { once: true, passive: true });
+        // on mobile, Safari only allows play inside a user gesture
+        document.addEventListener("touchstart", enableMusic, { once: true });
+        document.addEventListener("click", enableMusic, { once: true });
     });
     // ======== CONFIG — edit these to personalize ========
     const INVITE = {
