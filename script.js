@@ -1,3 +1,28 @@
+    document.addEventListener("DOMContentLoaded", () => {
+    const music = document.getElementById("bg-music");
+    if (!music) return;
+
+    // Robust "first interaction" handler (mouse, touch, pen)
+    const enableMusic = () => {
+        // ensure the element is ready; then unmute & play
+        const start = () => {
+        // unmute and set a safe volume in the same user gesture
+        music.muted = false;
+        if (music.volume === 0) music.volume = 1;
+        music.play().catch(err => console.log("Play blocked:", err));
+        };
+
+        if (music.readyState >= 2) {
+        start();
+        } else {
+        music.addEventListener("canplay", start, { once: true });
+        music.load(); // in case browser deferred loading
+        }
+    };
+
+    // Use pointerdown to catch both click & touch (once)
+    document.addEventListener("pointerdown", enableMusic, { once: true, passive: true });
+    });
     // ======== CONFIG — edit these to personalize ========
     const INVITE = {
       coupleA: 'Rhodnie',
