@@ -14,11 +14,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <audio id="bg-music" loop muted playsinline preload="auto"><source src="wedding.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+    <audio autoplay loop><source src="wedding.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+    <!--<audio id="bg-music" loop autoplay><source src="wedding.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
     <div id="music-overlay">
         <button id="play-music-btn">💌 Tap to Open the Invitation</button>
-    </div>
+    </div>-->
   <header class="hero">
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="video1.mp4" type="video/mp4">
+    </video>
     <div class="petals" aria-hidden="true"></div>
     <div class="wrap">
       <div class="tagline fade-in">You're invited to the wedding of</div>
@@ -108,7 +112,7 @@
             <div class="event">
               <div class="dot"></div>
               <div>
-                <h3>8:00 PM — Send‑off</h3>
+                <h3>9:00 PM — Send‑off</h3>
                 <p>Sparkler exit ✨</p>
               </div>
             </div>

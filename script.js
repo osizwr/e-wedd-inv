@@ -63,7 +63,7 @@
 
     // Populate hero + details
     const names = `${INVITE.coupleA} & ${INVITE.coupleB}`;
-    document.title = `${INVITE.coupleA} & ${INVITE.coupleB} #TeamChaNie`;
+    document.title = `#TeamChaNie ${INVITE.coupleA} & ${INVITE.coupleB}`;
     document.querySelector('.names').innerHTML = `${INVITE.coupleA} <span class="and">&</span> ${INVITE.coupleB}`;
     document.getElementById('introText').textContent = INVITE.intro1;
     document.getElementById('introText2').textContent = INVITE.intro2;
