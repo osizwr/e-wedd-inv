@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
             content.style.opacity = "1";
         } catch (err) {
             console.log("Play failed:", err);
-            alert("Audio could not start. Tap again or check your phone volume.");
         }
     });
 });
