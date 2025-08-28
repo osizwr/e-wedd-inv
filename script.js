@@ -2,35 +2,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const music = document.getElementById("bg-music");
     const overlay = document.getElementById("music-overlay");
     const playBtn = document.getElementById("play-music-btn");
+    const content = document.getElementById("content");
 
     if (!music) return;
 
-    // Make sure body starts hidden
-    document.body.classList.remove("fade-in");
+    // Remove muted if present
+    music.muted = false;
 
-    const enableMusic = (event) => {
-        event.preventDefault(); // prevent default mobile behavior
-        music.muted = false;
-        music.volume = 1;
+    playBtn.addEventListener("click", async (e) => {
+        try {
+            // Try to play music
+            await music.play();
 
-        // Play music directly inside the user gesture
-        const playPromise = music.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(err => console.log("Play blocked:", err));
+            // Fade out overlay
+            overlay.style.transition = "opacity 1s ease";
+            overlay.style.opacity = "0";
+            setTimeout(() => overlay.style.display = "none", 1000);
+
+            // Fade in main content
+            content.style.opacity = "1";
+        } catch (err) {
+            console.log("Play failed:", err);
+            alert("Audio could not start. Tap again or check your phone volume.");
         }
-
-        // Fade out overlay
-        overlay.classList.add("fade-out");
-
-        // Fade in body after overlay
-        setTimeout(() => {
-            overlay.style.display = "none";
-            document.body.classList.add("fade-in");
-        }, 1000);
-    };
-
-    // Use pointerdown for both mouse and touch
-    playBtn.addEventListener("pointerdown", enableMusic, { once: true });
+    });
 });
 
     // ======== CONFIG — edit these to personalize ========
