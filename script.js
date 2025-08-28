@@ -1,31 +1,37 @@
-    document.addEventListener("DOMContentLoaded", () => {
-        const music = document.getElementById("bg-music");
-        const overlay = document.getElementById("music-overlay");
-        const playBtn = document.getElementById("play-music-btn");
+document.addEventListener("DOMContentLoaded", () => {
+    const music = document.getElementById("bg-music");
+    const overlay = document.getElementById("music-overlay");
+    const playBtn = document.getElementById("play-music-btn");
 
-        if (!music) return;
+    if (!music) return;
 
-        // Main body stays hidden until ready
-        document.body.classList.remove("fade-in");
+    // Make sure body starts hidden
+    document.body.classList.remove("fade-in");
 
-        const enableMusic = () => {
-            music.muted = false;
-            music.volume = 1;
-            music.play().catch(err => console.log("Play blocked:", err));
+    const enableMusic = (event) => {
+        event.preventDefault(); // prevent default mobile behavior
+        music.muted = false;
+        music.volume = 1;
 
-            // Fade out overlay
-            overlay.classList.add("fade-out");
+        // Play music directly inside the user gesture
+        const playPromise = music.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(err => console.log("Play blocked:", err));
+        }
 
-            // After overlay fades, fade in body
-            setTimeout(() => {
+        // Fade out overlay
+        overlay.classList.add("fade-out");
+
+        // Fade in body after overlay
+        setTimeout(() => {
             overlay.style.display = "none";
             document.body.classList.add("fade-in");
-            }, 1000); // match CSS transition time
-        };
+        }, 1000);
+    };
 
-        playBtn.addEventListener("click", enableMusic);
-        playBtn.addEventListener("touchstart", enableMusic, { once: true });
-    });
+    // Use pointerdown for both mouse and touch
+    playBtn.addEventListener("pointerdown", enableMusic, { once: true });
+});
 
     // ======== CONFIG — edit these to personalize ========
     const INVITE = {

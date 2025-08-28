@@ -57,7 +57,7 @@ section[id] {
       background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600"><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="%23ffb4c6"/><stop offset="1" stop-color="%23a78bfa"/></linearGradient></defs><g fill="url(%23g)" opacity="0.5"><circle cx="120" cy="140" r="8"/><circle cx="300" cy="80" r="5"/><circle cx="520" cy="200" r="10"/><circle cx="200" cy="340" r="6"/><circle cx="420" cy="420" r="7"/><circle cx="90" cy="420" r="9"/></g></svg>') repeat; filter: blur(1.2px);
     }
     .tagline { letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-size: .85rem; }
-    h1.names { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; font-size: clamp(2.2rem, 7vw, 4rem); margin: 12px 0 8px; line-height: 1.1; }
+    h1.names { font-family: 'Great Vibes', cursive; font-size: clamp(2.2rem, 7vw, 4rem); margin: 12px 0 8px; line-height: 1.1; }
     .and { color: var(--accent); }
     .date { font-size: 1rem; color: var(--muted); }
 
