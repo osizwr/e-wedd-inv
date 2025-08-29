@@ -188,6 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     modal.style.display = "none";
     rsvpForm.submit(); // finally submit the form
+    window.location.href = "thankyou.html";
   });
 
   // Cancel button
