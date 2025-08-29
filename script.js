@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         mapsQuery: 'Rampano+Hills+Venue+Events+Place'
       },
       //formspreeEndpoint: 'https://formspree.io/f/mpwjaeea' // ← replace this!
-      formspreeEndpoint: 'https://formspree.io/f/mpwjaeea'
+      formspreeEndpoint: 'https://formspree.io/f/mpwjaeeassda'
     };
 
     // ======== Helper: formatters ========
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tick();
     setInterval(tick, 1000);
 
-    // Add to Calendar (.ics generation)
+    /**  Add to Calendar (.ics generation)
     document.getElementById('addToCalendar').addEventListener('click', () => {
       const dtStart = dt.toISOString().replace(/[-:]/g, '').replace(/\..+/, '');
       const dtEnd = end.toISOString().replace(/[-:]/g, '').replace(/\..+/, '');
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Save Invitation as a standalone HTML (client-side)
-/**    document.getElementById('saveInvite').addEventListener('click', () => {
+      document.getElementById('saveInvite').addEventListener('click', () => {
       const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -199,29 +199,6 @@ document.addEventListener("DOMContentLoaded", () => {
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
       modal.style.display = "none";
-    }
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const calendarBtn = document.getElementById("addToCalendarBtn");
-  const calendarModal = document.getElementById("calendarModal");
-  const closeCalendar = document.getElementById("closeCalendar");
-
-  // Open modal on button click
-  calendarBtn.addEventListener("click", () => {
-    calendarModal.style.display = "flex";
-  });
-
-  // Close modal
-  closeCalendar.addEventListener("click", () => {
-    calendarModal.style.display = "none";
-  });
-
-  // Close modal if user clicks outside
-  window.addEventListener("click", (e) => {
-    if (e.target === calendarModal) {
-      calendarModal.style.display = "none";
     }
   });
 });
