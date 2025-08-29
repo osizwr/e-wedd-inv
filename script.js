@@ -51,7 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
         lng: 118.722739,
         mapsQuery: 'Rampano+Hills+Venue+Events+Place'
       },
-      formspreeEndpoint: 'https://formspree.io/f/mpwjaeea' // ← replace this!
+      //formspreeEndpoint: 'https://formspree.io/f/mpwjaeea' // ← replace this!
+      formspreeEndpoint: 'https://formspree.io/f/xblarapkd'
     };
 
     // ======== Helper: formatters ========
@@ -164,3 +165,63 @@ document.addEventListener("DOMContentLoaded", () => {
       style.textContent = `.kbd :focus{ outline: 2px solid var(--accent); outline-offset: 3px; }`;
       document.head.appendChild(style);
     })();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const rsvpForm = document.getElementById("rsvpForm");
+  const modal = document.getElementById("confirm-modal");
+  const confirmBtn = document.getElementById("confirm-submit");
+  const cancelBtn = document.getElementById("cancel");
+  const agreeCheckbox = document.getElementById("agree-checkbox");
+
+  // Intercept RSVP submit
+  rsvpForm.addEventListener("submit", (e) => {
+    e.preventDefault(); // stop form from submitting right away
+    modal.style.display = "flex"; // show modal
+  });
+
+  // Confirm button inside modal
+  confirmBtn.addEventListener("click", () => {
+    if (!agreeCheckbox.checked) {
+      alert("Please check 'I agree' to proceed.");
+      return;
+    }
+
+    modal.style.display = "none";
+    rsvpForm.submit(); // finally submit the form
+  });
+
+  // Cancel button
+  cancelBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // Close modal when clicking outside content
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const calendarBtn = document.getElementById("addToCalendarBtn");
+  const calendarModal = document.getElementById("calendarModal");
+  const closeCalendar = document.getElementById("closeCalendar");
+
+  // Open modal on button click
+  calendarBtn.addEventListener("click", () => {
+    calendarModal.style.display = "flex";
+  });
+
+  // Close modal
+  closeCalendar.addEventListener("click", () => {
+    calendarModal.style.display = "none";
+  });
+
+  // Close modal if user clicks outside
+  window.addEventListener("click", (e) => {
+    if (e.target === calendarModal) {
+      calendarModal.style.display = "none";
+    }
+  });
+});
