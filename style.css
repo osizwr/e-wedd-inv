@@ -289,19 +289,7 @@ p {
   gap: 20px;
 }
 
-    .bg1 { height: 100vh; /* full screen per section */
-      background-size: cover;
-      background-position: center;
-      background-image: url("assets/images/bg.png"); }
-    .bg2 { height: 100vh; /* full screen per section */
-      background-size: cover;
-      background-position: center;
-      background-image: url("assets/images/bg2.png"); }
-    .bg3 { height: 100vh; /* full screen per section */
-      background-size: cover;
-      background-position: center;
-      background-image: url("assets/images/bg3.png"); }
-    .bg4 { height: 100vh; /* full screen per section */
-      background-size: cover;
-      background-position: center;
-      background-image: url("assets/images/bg4.png"); }
+    .bg1 { background-image: url("assets/images/bg.png"); }
+    .bg2 { background-image: url("assets/images/bg2.png"); }
+    .bg3 { background-image: url("assets/images/bg3.png"); }
+    .bg4 { background-image: url("assets/images/bg4.png"); }
