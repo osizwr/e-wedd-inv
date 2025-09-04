@@ -11,34 +11,50 @@ section[id] {
   scroll-margin-top: 80px; /* tweak to your header height */
 }
 :root {
-      --bg: #0f0e13;
-      --text: #f8f7fb;
-      --muted: #cfcbe6;
-      --primary: #a78bfa; /* lavender */
-      --primary-strong: #8b5cf6;
-      --accent: #ffb4c6;  /* blush */
-      --card: rgba(255,255,255,0.06);
-      --card-border: rgba(255,255,255,0.15);
-      --success: #34d399;
-      --danger: #ef4444;
-      --maxw: 1100px;
-      --radius: 18px;
-      --shadow: 0 8px 30px rgba(0,0,0,0.35);
-    }
+  --bg: #fdfdfd;               /* clean white background */
+  --text: #2a2a2a;             /* dark gray for readability */
+  --muted: rgba(255,255,255,0.85);            /* dusty/powder blue-gray for muted text */
+  --primary: #89a9c7;          /* powder blue */
+  --primary-strong: #5a7fa3;   /* dusty blue */
+  --accent: #a7c7e7;           /* soft light blue */
+  --card: rgba(255,255,255,0.85); 
+  --card-border: rgba(137,169,199,0.4);
+  --success: #3da9a0;
+  --danger: #d9534f;
+  --maxw: 1100px;
+  --radius: 18px;
+  --shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
 
     * { box-sizing: border-box; }
     html, body { height: 100%; }
-    body {
-      margin: 0;
-      color: var(--text);
-      font-family: 'Playfair Display', Georgia, serif;
-      background: radial-gradient(1200px 600px at 80% -10%, #402a8b33, transparent),
-                  radial-gradient(800px 500px at 0% 0%, #ffb4c633, transparent),
-                  linear-gradient(180deg, #111026 0%, #0f0e13 60%, #0b0a0f 100%);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: 'Playfair Display', Georgia, serif;
+  background: radial-gradient(1200px 600px at 80% -10%, #a7c7e722, transparent),
+              radial-gradient(800px 500px at 0% 0%, #89a9c722, transparent),
+              linear-gradient(180deg, #fdfdfd 0%, #f7f9fb 60%, #f0f4f8 100%);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: opacity 1s ease;
+}
+
+h2, h3, h4 {
+  font-family: 'Great Vibes', cursive;
+  margin: 0.5em 0;
+  color: var(--primary-strong);
+}
+
+h1{
+  color: var(--card);
+}
+
+p {
+  margin: 0.5em 0;
+  color: var(--text);
+}
 
     a { color: var(--primary); text-decoration: none; }
 
@@ -66,24 +82,37 @@ section[id] {
     .date { font-size: 1rem; color: var(--muted); }
 
     .cta-row { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: var(--radius);
-      background: var(--primary-strong); color: white; border: 1px solid #ffffff22; box-shadow: var(--shadow);
-      transition: transform .1s ease, filter .2s ease, background .2s ease; font-weight: 600;
-    }
-    .btn.secondary { background: #0b0a0f; border: 1px solid var(--card-border); color: var(--text); backdrop-filter: blur(6px); }
-    .btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
+.btn {
+  background: var(--primary-strong);
+  color: white;
+  border: 1px solid #ffffff33;
+  box-shadow: var(--shadow);
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn.secondary {
+  background: #fff;
+  border: 1px solid var(--card-border);
+  color: var(--text);
+}
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
 
     /* CARD SECTIONS */
     section.card { background: var(--card); border: 1px solid var(--card-border); border-radius: var(--radius); box-shadow: var(--shadow); margin: 22px 0; }
     section.card .inner { padding: clamp(16px, 3vw, 28px); }
     h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Great Vibes', cursive;
       font-weight: 700;
       letter-spacing: 0.2px;
       font-size: clamp(1.4rem, 3.5vw, 2rem);
     }
-    p.lead { color: var(--muted); margin-top: 0; }
+    p.lead { color: var(--text); margin-top: 0; }
 
     /* GRID */
     .grid { display: grid; gap: 18px; }
@@ -94,7 +123,7 @@ section[id] {
     .countdown { display: grid; grid-template-columns: repeat(4, minmax(72px, 1fr)); gap: 10px; text-align: center; }
     .timebox { background: #ffffff10; border: 1px solid var(--card-border); border-radius: 16px; padding: 14px 10px; }
     .timebox .num { font-size: clamp(1.4rem, 5vw, 2.2rem); font-weight: 700; }
-    .timebox .lbl { font-size: .8rem; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; }
+    .timebox .lbl { font-size: .8rem; color: var(--text); letter-spacing: .1em; text-transform: uppercase; }
 
     /* TIMELINE */
     .timeline { position: relative; }
@@ -102,7 +131,7 @@ section[id] {
     .event { display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start; }
     .dot { width: 20px; height: 20px; border-radius: 50%; background: var(--accent); border: 3px solid #ffffffaa; margin-top: 2px; }
     .event h3 { margin: 0; font-size: 1rem; }
-    .event p { margin: 4px 0 14px; color: var(--muted); }
+    .event p { margin: 4px 0 14px; color: var(--text); }
 
     /* RSVP */
     form { display: grid; gap: 12px; }
@@ -137,7 +166,7 @@ section[id] {
     }
 
     /* FOOTER */
-    footer { text-align: center; color: var(--muted); padding: 24px 0 60px; }
+    footer { text-align: center; color: var(--text); padding: 24px 0 60px; }
 
     /* SMALL niceties */
     .chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: #ffffff10; border: 1px solid var(--card-border); font-size: .9rem; }
@@ -172,28 +201,30 @@ section[id] {
     transition: opacity 1s ease;
     }
 
-    #play-music-btn {
-    background: #2e6eb8; /* gold */
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease, background 0.3s ease;
-    }
-
-    #play-music-btn:hover {
-    background: #397fcf;
-    transform: scale(1.05);
-    }
-
-    #music-overlay.fade-out {
-    opacity: 0;
-    pointer-events: none; /* ignore clicks after fade */
-    }
+#music-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+#play-music-btn {
+  position: relative;
+  z-index: 2;
+  background: var(--primary-strong);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+#play-music-btn:hover {
+  background: var(--primary);
+  transform: scale(1.05);
+}
 .bg-video {
   position: absolute;
   top: 0;
@@ -205,36 +236,38 @@ section[id] {
 }
 
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
   display: none;
+  position: fixed;
+  z-index: 99999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
   justify-content: center;
   align-items: center;
-  z-index: 2000;
   overflow-y: auto;
 }
-
-/* Modal Content Box */
-.modal-content.wide {
-  background: #0b0a0f;
-  padding: 40px;
-  border-radius: 20px;
-  text-align: center;
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 600px;
   width: 90%;
-  max-width: 4000px; /* your requested width */
-  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  text-align: center;
+  box-shadow: var(--shadow);
+  animation: popIn 0.4s ease;
 }
-
-/* Modal Title */
+.modal-content.wide {
+  max-width: 4000px;
+  text-align: center;
+}
 .modal-title {
-  font-family: "Great Vibes", cursive; /* wedding style font */
+  font-family: 'Great Vibes', cursive;
   font-size: 36px;
-  color: #6a4caf;
-  margin-bottom: 10px;
+  color: var(--primary-strong);
+}
+.modal-footer {
+  margin-top: 20px;
+  text-align: right;
 }
 
 .agree-label input[type="checkbox"] {
