@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         mapsQuery: 'Rampano+Hills+Venue+Events+Place'
       },
       //formspreeEndpoint: 'https://formspree.io/f/mpwjaeea' // ← replace this!
-      formspreeEndpoint: 'https://formspree.io/f/mpwjaeea'
+      //formspreeEndpoint: 'https://formspree.io/f/mpwjaeea'
     };
 
     // ======== Helper: formatters ========
